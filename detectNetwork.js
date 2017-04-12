@@ -8,20 +8,43 @@
 //   2. The number of digits in the number (called the length)
 
 var detectNetwork = function(cardNumber) {
-  // Note: `cardNumber` will always be a string
-  var prefix = cardNumber.slice(0,2);
-  if (cardNumber.length === 14 && (prefix === '38' || prefix === '39')) {
-  	return 'Diner\'s Club';
-  } else if (cardNumber.length === 15 && (prefix === '34' || prefix === '37')) {
-  	return 'American Express';
-  } else if ((prefix === '51' || prefix === '52' || prefix === '53' || prefix === '54' || prefix === '55') 
-  		&& cardNumber.length === 16) {
-  	return 'MasterCard';
-  } else if (prefix.charAt(0) === '4' && (cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19)) {
-  	return 'Visa';
-  } else {
-  	return null;
-  }
-};
+	var numDigits = cardNumber.length;
+	switch(numDigits) {
+		case 12: return null;
+		case 13: return selectNetwork(['Visa'], cardNumber);
+		case 14: return selectNetwork(['Diner\'s Club'], cardNumber);
+		case 15: return selectNetwork(['American Express'], cardNumber);
+		case 16: return selectNetwork(['MasterCard', 'Visa'], cardNumber);
+		case 17: return null;
+		case 18: return null;
+		case 19: return selectNetwork(['Visa'], cardNumber);
+		default: return null;
+	}
+}
+
+var selectNetwork = function(networkNames, cardNumber) {
+	for (var i = 0; i < networkNames.length; i++) {
+		if (isValidPrefix(cardPrefixes[networkNames[i]], cardNumber)) {
+			return networkNames[i];
+		}
+	}
+	return null;
+}
+
+var isValidPrefix = function(validPrefixes, cardNumber) {
+	for (var i = 0; i < validPrefixes.length; i++) {
+		if (cardNumber.startsWith(validPrefixes[i])) {
+			return true;
+		}
+	}
+	return false;
+}
+
+var cardPrefixes = {
+	'Diner\'s Club': ['38', '39'],
+	'American Express': ['34', '37'],
+	'MasterCard': ['51', '52', '53', '54', '55'],
+	'Visa': ['4'],
+}
 
 
