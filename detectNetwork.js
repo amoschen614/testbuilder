@@ -18,7 +18,7 @@ var detectNetwork = function(cardNumber) {
 		case 17: return selectNetwork(['Maestro'], cardNumber);
 		case 18: return selectNetwork(['Maestro'], cardNumber);
 		case 19: return selectNetwork(['Visa', 'Discover', 'Maestro'], cardNumber);
-		default: return "null";
+		default: return null;
 	}
 }
 
@@ -28,7 +28,7 @@ var selectNetwork = function(networkNames, cardNumber) {
 			return networkNames[i];
 		}
 	}
-	return "null";
+	return null;
 }
 
 var isValidPrefix = function(validPrefixes, cardNumber) {
