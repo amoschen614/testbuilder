@@ -109,8 +109,6 @@ describe('MasterCard', function() {
 });
 
 describe('Discover', function() {
-  // Tests without a function will be marked as "pending" and not run
-  // Implement these tests (and others) and make them pass!
   var assert = chai.assert;
 
   it('has a prefix of 5018 and a length of 12', function() {
@@ -212,7 +210,7 @@ describe('Discover', function() {
 });
 
 describe('Maestro', function() {
-  // Write full test coverage for the Maestro card
+
 });
 
 describe('should support China UnionPay')
