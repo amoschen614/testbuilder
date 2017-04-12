@@ -14,10 +14,10 @@ var detectNetwork = function(cardNumber) {
 		case 13: return selectNetwork(['Visa'], cardNumber);
 		case 14: return selectNetwork(['Diner\'s Club'], cardNumber);
 		case 15: return selectNetwork(['American Express'], cardNumber);
-		case 16: return selectNetwork(['MasterCard', 'Visa', 'Discover'], cardNumber);
+		case 16: return selectNetwork(['MasterCard', 'Visa'], cardNumber);
 		case 17: return null;
 		case 18: return null;
-		case 19: return selectNetwork(['Visa', 'Discover'], cardNumber);
+		case 19: return selectNetwork(['Visa'], cardNumber);
 		default: return null;
 	}
 }
@@ -45,7 +45,6 @@ var cardPrefixes = {
 	'American Express': ['34', '37'],
 	'MasterCard': ['51', '52', '53', '54', '55'],
 	'Visa': ['4'],
-	'Discover': ['6011', '644', '645', '646', '647', '648', '649', '65']
 }
 
 
