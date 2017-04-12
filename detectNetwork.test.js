@@ -1,11 +1,4 @@
-/*
- * You'll eventually be given instructions how to use this file
- * If you want to use it before then, you'll have to figure it out yourself
- */
 
-// You don't actually want to fill *this* value in on line 9, but you'll see
-// other places in this file where you'll replace the FILL_ME_IN with a
-// different value.
 var FILL_ME_IN = 'Fill this value in';
 
 /* 
@@ -45,10 +38,8 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
 */
 
 describe('Diner\'s Club', function() {
-  // Be careful, tests can have bugs too...
 
   it('has a prefix of 38 and a length of 14', function() {
-  //  throw new Error('Delete me!');
     if (detectNetwork('38345678901234') !== 'Diner\'s Club') {
       throw new Error('Test failed');
     }
@@ -58,18 +49,14 @@ describe('Diner\'s Club', function() {
     if (detectNetwork('39345678901234') !== 'Diner\'s Club') {
       throw new Error('Test failed');
     }
- 
   });
 });
 
 describe('American Express', function() {
-  // It can get annoying to keep typing the if/throw, so here is a
-  // helper function to throw an error if the input statement isn't true. 
   var assert = function(isTrue) {
     if(!isTrue) {
       throw new Error('Test failed');
     }
- 
   };
 
   it('has a prefix of 34 and a length of 15', function() {
