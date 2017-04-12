@@ -111,6 +111,59 @@ describe('MasterCard', function() {
 describe('Discover', function() {
   var assert = chai.assert;
 
+  it('has a prefix of 6011 and a length of 16', function() {
+    assert(detectNetwork('6011567890123456') === 'Discover');
+  });
+  it('has a prefix of 6011 and a length of 19', function() {
+    assert(detectNetwork('6011567890123456789') === 'Discover');
+  });
+  it('has a prefix of 644 and a length of 16', function() {
+    assert(detectNetwork('6444567890123456') === 'Discover');
+  });
+  it('has a prefix of 644 and a length of 19', function() {
+    assert(detectNetwork('6444567890123456789') === 'Discover');
+  });
+  it('has a prefix of 645 and a length of 16', function() {
+    assert(detectNetwork('6454567890123456') === 'Discover');
+  });
+  it('has a prefix of 645 and a length of 19', function() {
+    assert(detectNetwork('6454567890123456789') === 'Discover');
+  });
+  it('has a prefix of 646 and a length of 16', function() {
+    assert(detectNetwork('6464567890123456') === 'Discover');
+  });
+  it('has a prefix of 646 and a length of 19', function() {
+    assert(detectNetwork('6464567890123456789') === 'Discover');
+  });
+  it('has a prefix of 647 and a length of 16', function() {
+    assert(detectNetwork('6474567890123456') === 'Discover');
+  });
+  it('has a prefix of 647 and a length of 19', function() {
+    assert(detectNetwork('6474567890123456789') === 'Discover');
+  });
+  it('has a prefix of 648 and a length of 16', function() {
+    assert(detectNetwork('6484567890123456') === 'Discover');
+  });
+  it('has a prefix of 648 and a length of 19', function() {
+    assert(detectNetwork('6484567890123456789') === 'Discover');
+  });
+  it('has a prefix of 649 and a length of 16', function() {
+    assert(detectNetwork('6494567890123456') === 'Discover');
+  });
+  it('has a prefix of 649 and a length of 19', function() {
+    assert(detectNetwork('6494567890123456789') === 'Discover');
+  });
+  it('has a prefix of 65 and a length of 16', function() {
+    assert(detectNetwork('6534567890123456') === 'Discover');
+  });
+  it('has a prefix of 65 and a length of 19', function() {
+    assert(detectNetwork('6534567890123456789') === 'Discover');
+  });
+});
+
+describe('Maestro', function() {
+  var assert = chai.assert;
+
   it('has a prefix of 5018 and a length of 12', function() {
     assert(detectNetwork('501856789012') === 'Maestro');
   });
@@ -209,9 +262,53 @@ describe('Discover', function() {
   });
 });
 
-describe('Maestro', function() {
+describe('China UnionPay', function() {
+  var assert = chai.assert;
 
-});
+  for (var i = 622126; i <= 622925; i++) {
+    it('has a prefix of ' + i + ' a length of 16', function() {
+      assert(detectNetwork('' + i + 7890123456));
+    });
+    it('has a prefix of ' + i + ' and a length of 17', function() {
+      assert(detectNetwork('' + i + 78901234567));
+    });
+    it('has a prefix of ' + i + ' and a length of 18', function() {
+      assert(detectNetwork('' + i + 789012345678));
+    });
+    it('has a prefix of ' + i + ' and a length of 19', function() {
+      assert(detectNetwork('' + i + 7890123456789));
+    });       
+  }
 
-describe('should support China UnionPay')
+  for (var i = 624; i <= 626; i++) {
+    it('has a prefix of ' + i + ' a length of 16', function() {
+      assert(detectNetwork('' + i + 4567890123456));
+    });
+    it('has a prefix of ' + i + ' and a length of 17', function() {
+      assert(detectNetwork('' + i + 45678901234567));
+    });
+    it('has a prefix of ' + i + ' and a length of 18', function() {
+      assert(detectNetwork('' + i + 456789012345678));
+    });
+    it('has a prefix of ' + i + ' and a length of 19', function() {
+      assert(detectNetwork('' + i + 4567890123456789));
+    });
+  }
+
+  for (var i = 6282; i <= 6288; i++) {
+    it('has a prefix of ' + i + ' a length of 16', function() {
+      assert(detectNetwork('' + i + 567890123456));
+    });
+    it('has a prefix of ' + i + ' and a length of 17', function() {
+      assert(detectNetwork('' + i + 5678901234567));
+    });
+    it('has a prefix of ' + i + ' and a length of 18', function() {
+      assert(detectNetwork('' + i + 56789012345678));
+    });
+    it('has a prefix of ' + i + ' and a length of 19', function() {
+      assert(detectNetwork('' + i + 567890123456789));
+    });
+  }
+}
+//describe('should support China UnionPay')
 describe('should support Switch')
