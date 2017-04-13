@@ -141,6 +141,11 @@ var cardNetworks = [
 		name: 'China UnionPay',
 		prefixRanges: [[622126, 622925], [624, 626], [6282, 6288]],
 		numberLengths: [16, 17, 18, 19]
+	},
+	{
+		name: 'Switch',
+		prefixRanges: [[4903, 4903], [4905, 4905], [4911, 4911], [4936, 4936], [564182, 564182], [633110, 633110], [6333, 6333], [6759, 6759]],
+		numberLengths: [16, 18, 19]
 	}
 ]
 
