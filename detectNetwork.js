@@ -10,8 +10,7 @@
 var detectNetwork = function(cardNumber) {
 	var possibleNetworks = collectNetworks(cardNumber);
 	var matches = selectNetworkMatches(possibleNetworks, cardNumber);
-	var correctNetwork = networkWithLongestPrefix(matches);
-	return correctNetwork;
+	return networkWithLongestPrefix(matches);
 }
 
 var collectNetworks = function(cardNumber) {
@@ -62,50 +61,6 @@ var networkWithLongestPrefix = function(networkList) {
 	return networkName;
 }
 
-
-/*
-var detectNetwork = function(cardNumber) {
-	var numDigits = cardNumber.length;
-	switch(numDigits) {
-		case 12: return selectNetwork(['Maestro'], cardNumber);
-		case 13: return selectNetwork(['Visa', 'Maestro'], cardNumber);
-		case 14: return selectNetwork(['Diner\'s Club', 'Maestro'], cardNumber);
-		case 15: return selectNetwork(['American Express', 'Maestro'], cardNumber);
-		case 16: return selectNetwork(['MasterCard', 'Visa', 'Discover', 'Maestro'], cardNumber);
-		case 17: return selectNetwork(['Maestro'], cardNumber);
-		case 18: return selectNetwork(['Maestro'], cardNumber);
-		case 19: return selectNetwork(['Visa', 'Discover', 'Maestro'], cardNumber);
-		default: return null;
-	}
-}
-*/
-var selectNetwork = function(networkNames, cardNumber) {
-	for (var i = 0; i < networkNames.length; i++) {
-		if (isValidPrefix(cardPrefixes[networkNames[i]], cardNumber)) {
-			return networkNames[i];
-		}
-	}
-	return null;
-}
-
-var isValidPrefix = function(validPrefixes, cardNumber) {
-	for (var i = 0; i < validPrefixes.length; i++) {
-		if (cardNumber.startsWith(validPrefixes[i])) {
-			return true;
-		}
-	}
-	return false;
-}
-
-var cardPrefixes = {
-	'Diner\'s Club': ['38', '39'],
-	'American Express': ['34', '37'],
-	'MasterCard': ['51', '52', '53', '54', '55'],
-	'Visa': ['4'],
-	'Discover': ['6011', '644', '645', '646', '647', '648', '649', '65'],
-	'Maestro': ['5018', '5020', '5038', '6304']
-}
-
 var cardNetworks = [
 	{
 		name: 'Diner\'s Club',
@@ -148,5 +103,3 @@ var cardNetworks = [
 		numberLengths: [16, 18, 19]
 	}
 ]
-
-

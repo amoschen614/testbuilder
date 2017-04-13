@@ -1,42 +1,6 @@
 
 var FILL_ME_IN = 'Fill this value in';
 
-/* 
-describe('Introduction to Mocha Tests - READ ME FIRST', function() {
-  // A Mocha test is just a function!
-  // If the function throws an error when run, it fails.
-  // If it doesn't throw an error when run, it doesn't fail. 
-  // To read more about mocha, visit mochajs.org
-
-  // Once you've read and understood this section, please comment it out. 
-  // You will not be able to proceed with a failing test. 
-
-  it('Throws an error so it fails', function() {
-    throw new Error('Delete me!');
-  });
-
-  it('Doesn\'t throw an error, so it doesn\'t fail', function() {
-    // This test doesn't really test anything at all! It will pass no matter what.
-    var even = function(num){
-      return num/2 === 0;
-    }
-    return even(10) === true;
-  });
-
-  // In tests, we want to compare the expected behavior to the actual behavior.
-  // A test should only fail if the expected behavior doesn't match the actual.
-  it('Throws an error when expected behavior does not match actual behavior', function() {
-    var even = function(num){
-      return num/2 === 0;
-    }
-
-    if(even(10) !== true) {
-      throw new Error('10 should be even!');
-    }
-  });
-});
-*/
-
 describe('Diner\'s Club', function() {
 
   it('has a prefix of 38 and a length of 14', function() {
@@ -391,57 +355,3 @@ describe('Switch', function() {
     assert(detectNetwork('6759567890123456789') === 'Switch');
   });
 });
-
-
-/*
-describe('China UnionPay', function() {
-  var assert = chai.assert;
-
-  for (var i = 622126; i <= 622925; i++) {
-    it('has a prefix of ' + i + ' a length of 16', function() {
-      assert(detectNetwork('' + i + 7890123456) );
-    });
-    it('has a prefix of ' + i + ' and a length of 17', function() {
-      assert(detectNetwork('' + i + 78901234567));
-    });
-    it('has a prefix of ' + i + ' and a length of 18', function() {
-      assert(detectNetwork('' + i + 789012345678));
-    });
-    it('has a prefix of ' + i + ' and a length of 19', function() {
-      assert(detectNetwork('' + i + 7890123456789));
-    });       
-  }
-
-  for (var i = 624; i <= 626; i++) {
-    it('has a prefix of ' + i + ' a length of 16', function() {
-      assert(detectNetwork('' + i + 4567890123456));
-    });
-    it('has a prefix of ' + i + ' and a length of 17', function() {
-      assert(detectNetwork('' + i + 45678901234567));
-    });
-    it('has a prefix of ' + i + ' and a length of 18', function() {
-      assert(detectNetwork('' + i + 456789012345678));
-    });
-    it('has a prefix of ' + i + ' and a length of 19', function() {
-      assert(detectNetwork('' + i + 4567890123456789));
-    });
-  }
-
-  for (var i = 6282; i <= 6288; i++) {
-    it('has a prefix of ' + i + ' a length of 16', function() {
-      assert(detectNetwork('' + i + 567890123456));
-    });
-    it('has a prefix of ' + i + ' and a length of 17', function() {
-      assert(detectNetwork('' + i + 5678901234567));
-    });
-    it('has a prefix of ' + i + ' and a length of 18', function() {
-      assert(detectNetwork('' + i + 56789012345678));
-    });
-    it('has a prefix of ' + i + ' and a length of 19', function() {
-      assert(detectNetwork('' + i + 567890123456789));
-    });
-  }
-});
-//describe('should support China UnionPay')
-describe('should support Switch')
-*/
