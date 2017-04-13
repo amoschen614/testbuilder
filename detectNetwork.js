@@ -10,7 +10,8 @@
 var detectNetwork = function(cardNumber) {
 	var possibleNetworks = collectNetworks(cardNumber);
 	var matches = selectNetworkMatches(possibleNetworks, cardNumber);
-	return matches[0].name;
+	var correctNetwork = networkWithLongestPrefix(matches);
+	return correctNetwork;
 }
 
 var collectNetworks = function(cardNumber) {
@@ -50,9 +51,10 @@ var networkWithLongestPrefix = function(networkList) {
 	var maxLength = -1;
 	var networkName = null;
 	for (var i = 0; i < networkList.length; i++) {
-		for (var j = 0; j < networkList[i].prefixRanges; j++) {
-			if (networkList[i].prefixRanges[j][0].length > maxLength) {
-				maxLength = networkList[i].prefixRanges[j][0].length;
+		for (var j = 0; j < networkList[i].prefixRanges.length; j++) {
+			var prefixStr = '' + networkList[i].prefixRanges[j][0];
+			if (prefixStr.length > maxLength) {
+				maxLength = prefixStr.length;
 				networkName = networkList[i].name;
 			}
 		}
@@ -134,6 +136,11 @@ var cardNetworks = [
 		name: 'Maestro',
 		prefixRanges: [[5018, 5018], [5020, 5020], [5038, 5038], [6304, 6304]],
 		numberLengths: [12, 13, 14, 15, 16, 17, 18, 19]
+	},
+	{
+		name: 'China UnionPay',
+		prefixRanges: [[622126, 622925], [624, 626], [6282, 6288]],
+		numberLengths: [16, 17, 18, 19]
 	}
 ]
 
